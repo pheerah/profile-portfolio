@@ -3,6 +3,7 @@
 import type { CSSProperties } from "react";
 import { useState } from "react";
 import { filters, projects } from "@/lib/data";
+import { B } from "./T";
 
 export default function ProjectsGrid() {
   const [active, setActive] = useState<string>("all");
@@ -12,7 +13,7 @@ export default function ProjectsGrid() {
       <div className="filters">
         {filters.map(([key, label]) => (
           <button key={key} className={active === key ? "on" : undefined} onClick={() => setActive(key)}>
-            {label}
+            <B v={label} />
           </button>
         ))}
       </div>
@@ -23,11 +24,7 @@ export default function ProjectsGrid() {
           const style = { "--c1": p.c1, "--c2": p.c2 } as CSSProperties;
           const dual = p.shots.length > 1;
           const shots = p.shots.map((s) => (
-            <div
-              key={s.alt}
-              className={`dev ${s.cls}`}
-              style={s.height ? { height: s.height } : undefined}
-            >
+            <div key={s.alt} className={`dev ${s.cls}`} style={s.height ? { height: s.height } : undefined}>
               {s.src && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={s.src} alt={s.alt} onError={(e) => e.currentTarget.remove()} />
@@ -37,19 +34,19 @@ export default function ProjectsGrid() {
           ));
           return (
             <article
-              key={p.title}
+              key={p.title[0]}
               className={`card proj tilt rv ${p.delay}`}
               data-hide={hide || undefined}
               style={style}
             >
               <div className="shot">
-                <span className="badge">{p.badge}</span>
+                <span className="badge"><B v={p.badge} /></span>
                 {dual ? <div className="dual">{shots}</div> : shots}
               </div>
               <div className="body">
-                <h3>{p.title}</h3>
-                <div className="org">{p.org}</div>
-                <p>{p.body}</p>
+                <h3><B v={p.title} /></h3>
+                <div className="org"><B v={p.org} /></div>
+                <p><B v={p.body} /></p>
                 <div className="tg">
                   {p.chips.map((c) => (
                     <span key={c}>{c}</span>

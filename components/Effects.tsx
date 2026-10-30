@@ -131,12 +131,14 @@ export default function Effects() {
       // typed headline
       const ty = document.querySelector<HTMLElement>("[data-typed]");
       if (ty) {
-        const words = (ty.dataset.typed || "").split("|");
+        const wordsFor = () =>
+          ((document.documentElement.dataset.lang === "th" && ty.dataset.typedTh) || ty.dataset.typed || "").split("|");
         let w = 0;
         let i = 0;
         let del = false;
         const step = () => {
-          const s = words[w];
+          const words = wordsFor();
+          const s = words[w % words.length];
           ty.textContent = s.slice(0, i);
           if (!del && i === s.length) {
             del = true;
