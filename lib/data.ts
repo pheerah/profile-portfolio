@@ -77,7 +77,7 @@ export const jobs: Job[] = [
   },
 ];
 
-export type Shot = { cls: "br" | "ph"; src: string; alt: string; label: string; height?: number };
+export type Shot = { cls: "br" | "ph"; src?: string; alt: string; label: string; height?: number };
 
 export type Project = {
   title: string;
@@ -105,7 +105,7 @@ export const projects: Project[] = [
     body: "Self-service web and mobile app. Built responsive interfaces and integrated backend microservices; enforced GitFlow and CI/CD build validation.",
     chips: ["Frontend", "Microservices", "CI/CD", "Agile"],
     shots: [
-      { cls: "br", src: "/img/true-iservice-web.jpg", alt: "True iService web", label: "True iService<br>Web" },
+      { cls: "br",  alt: "True iService web", label: "True iService<br>Web" },
       { cls: "ph", src: "/img/true-iservice-app.jpg", alt: "True iService app", label: "True iService<br>App" },
     ],
   },
@@ -120,7 +120,7 @@ export const projects: Project[] = [
     body: "Account experience within the TrueID ecosystem, alongside the TrueID Payment & Subscription platform that sustained 99.99% uptime.",
     chips: ["Product Owners", "Payments", "Monitoring", "Tier-3 support"],
     shots: [
-      { cls: "br", src: "/img/trueid-myaccount-web.jpg", alt: "TrueID My Account", label: "TrueID<br>My Account" },
+      { cls: "br",  alt: "TrueID My Account", label: "TrueID<br>My Account" },
       { cls: "ph", src: "/img/trueid-myaccount-app.jpg", alt: "TrueID app", label: "TrueID<br>App" },
     ],
   },
@@ -149,7 +149,7 @@ export const projects: Project[] = [
     delay: "",
     body: "End-to-end ERP project framework and integration of internal applications with NetSuite, validating 40+ API endpoints with vendors and business users.",
     chips: ["NetSuite", "REST API", "Vendor mgmt", "Governance"],
-    shots: [{ cls: "br", src: "/img/netsuite-integration.jpg", alt: "NetSuite integration", label: "NetSuite ERP<br>Integration" }],
+    shots: [{ cls: "br",  alt: "NetSuite integration", label: "NetSuite ERP<br>Integration" }],
   },
 ];
 

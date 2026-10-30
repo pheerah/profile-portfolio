@@ -24,12 +24,14 @@ export default function ProjectsGrid() {
           const dual = p.shots.length > 1;
           const shots = p.shots.map((s) => (
             <div
-              key={s.src}
+              key={s.alt}
               className={`dev ${s.cls}`}
               style={s.height ? { height: s.height } : undefined}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={s.src} alt={s.alt} onError={(e) => e.currentTarget.remove()} />
+              {s.src && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={s.src} alt={s.alt} onError={(e) => e.currentTarget.remove()} />
+              )}
               <div className="ph-t" dangerouslySetInnerHTML={{ __html: s.label }} />
             </div>
           ));

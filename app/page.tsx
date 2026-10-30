@@ -8,7 +8,7 @@ const marquee = [
   "Agile / Scrum",
   "ERP · NetSuite",
   "Stakeholder & Vendor Management",
-  "UAT & Releases",
+  "Release Management",
   "CI/CD",
 ];
 
@@ -36,7 +36,7 @@ const tags = [
   "Stakeholder management",
   "Vendor management",
   "Risk & change",
-  "UAT & releases",
+  "Release management",
   "ERP / NetSuite",
   "Jira · Confluence",
   "SQL · REST API",
