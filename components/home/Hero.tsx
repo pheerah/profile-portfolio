@@ -17,6 +17,8 @@ export default function Hero() {
         <div>
           <span className="eyebrow"><T en="Open to new roles" th="เปิดรับโอกาสใหม่" /></span>
           <h1>
+            {/* Full name for search engines and screen readers; the visible greeting only says "Pheerah". */}
+            <span className="sr-only">Pheerah Praditthaphong – Project & Product Leader. </span>
             <T en={<>Hi, I&apos;m Pheerah.<br />I ship </>} th={<>สวัสดี ฉันคือ Pheerah<br />ฉันส่งมอบ </>} />
             <span className="shim" data-typed={TYPED_EN} data-typed-th={TYPED_TH} suppressHydrationWarning>
               complex software

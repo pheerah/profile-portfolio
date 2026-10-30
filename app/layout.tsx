@@ -5,7 +5,7 @@ import Effects from "@/components/layout/Effects";
 import Footer from "@/components/layout/Footer";
 import Nav from "@/components/layout/Nav";
 import { PREFS_SCRIPT } from "@/lib/prefs";
-import { personJsonLd, rootMetadata } from "@/lib/seo";
+import { jsonLd, rootMetadata } from "@/lib/seo";
 import "./globals.css";
 
 // next/font needs literal options (no variables), so the weights are repeated.
@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* Applies saved theme/language before first paint (no flash). */}
         <script dangerouslySetInnerHTML={{ __html: PREFS_SCRIPT }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>
         <div id="bar" />
