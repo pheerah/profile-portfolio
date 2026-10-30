@@ -14,7 +14,7 @@ export const metadata = pageMetadata({
 
 export default function CaseStudies() {
   return (
-    <main className="wrap">
+    <main id="main" className="wrap">
       <PageHeader
         kicker={["Case studies", "ผลงานเชิงลึก"]}
         title={["How the work ", "งานเกิดขึ้น"]}

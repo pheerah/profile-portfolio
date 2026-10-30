@@ -1,6 +1,8 @@
+import type { GlyphName } from "@/components/ui/Glyph";
 import type { Bi } from "@/components/ui/T";
 
 export type Job = {
+  icon: GlyphName;
   title: Bi;
   when: Bi;
   org: Bi;
@@ -12,6 +14,7 @@ const PM: Bi = ["Project Manager", "ผู้จัดการโครงก�
 
 export const jobs: Job[] = [
   {
+    icon: "building",
     title: PM,
     when: now,
     org: ["Always Pioneering Innovation · client Saha Pathanapibul", "Always Pioneering Innovation · ลูกค้า Saha Pathanapibul"],
@@ -20,12 +23,14 @@ export const jobs: Job[] = [
       { h: ["Stakeholder & Vendor Coordination", "การประสานงาน stakeholder และเวนเดอร์"], t: ["Bridged communication between internal teams, business users and NetSuite vendors to align technical delivery with business needs.", "เชื่อมการสื่อสารระหว่างทีมภายใน ผู้ใช้งานฝั่งธุรกิจ และเวนเดอร์ NetSuite เพื่อให้การส่งมอบด้านเทคนิคสอดคล้องกับความต้องการทางธุรกิจ"] },
       { h: ["System Integration & API Management", "การเชื่อมต่อระบบและการจัดการ API"], t: ["Directed internal application integration with NetSuite ERP, validating over 40 API endpoints for data synchronization.", "กำกับการเชื่อมต่อแอปพลิเคชันภายในกับ NetSuite ERP และตรวจสอบ API endpoint กว่า 40 รายการเพื่อการซิงก์ข้อมูล"] },
       { h: ["Team Leadership & AI Adoption", "ภาวะผู้นำทีมและการนำ AI มาใช้"], t: ["Led the Business Analyst team in adopting AI-driven tools to streamline workflows, enhance productivity and accelerate delivery.", "นำทีม Business Analyst นำเครื่องมือที่ใช้ AI มาปรับปรุงขั้นตอนการทำงาน เพิ่มประสิทธิภาพ และเร่งการส่งมอบ"] },
+      { h: ["UAT Tracker", "UAT Tracker"], t: ["Built a UAT tracking system with AI coding agents so Saha Pathanapibul users could run and record user acceptance testing of the SPC New ERP (NetSuite): daily test plans, scenario details, result recording and a user guide.", "สร้างระบบ UAT Tracker ด้วย AI coding agent ให้ผู้ใช้ของสหพัฒนภิบูลทำและบันทึกผล UAT ของ SPC New ERP (NetSuite) มีแผนทดสอบรายวัน รายละเอียด scenario การบันทึกผล และคู่มือการใช้งาน"] },
       { h: ["Mentorship & Performance", "การเป็นพี่เลี้ยงและพัฒนาผลงาน"], t: ["Mentored Project Managers and development teams across concurrent projects to cultivate best practices and elevate performance.", "เป็นพี่เลี้ยงให้ Project Manager และทีมพัฒนาในหลายโครงการพร้อมกัน เพื่อสร้างแนวปฏิบัติที่ดีและยกระดับผลงาน"] },
       { h: ["Executive Reporting & Strategic Alignment", "การรายงานผู้บริหารและการสอดประสานเชิงกลยุทธ์"], t: ["Delivered strategic updates to executive leadership, ensuring transparency on project milestones and overall alignment.", "รายงานความคืบหน้าเชิงกลยุทธ์ต่อผู้บริหาร เพื่อความโปร่งใสของ milestone และความสอดคล้องโดยรวม"] },
       { h: ["Risk Management & Issue Resolution", "การบริหารความเสี่ยงและแก้ไขปัญหา"], t: ["Proactively managed project risks and resolved critical blockers to maintain team momentum and safeguard timelines.", "บริหารความเสี่ยงเชิงรุกและแก้ปัญหาคอขวดสำคัญ เพื่อรักษาจังหวะของทีมและกำหนดการ"] },
     ],
   },
   {
+    icon: "car",
     title: PM,
     when: ["2024 – 2026", "2024 – 2026"],
     org: ["Toyota Connected Asia Pacific", "Toyota Connected Asia Pacific"],
@@ -39,18 +44,20 @@ export const jobs: Job[] = [
     ],
   },
   {
+    icon: "phone",
     title: ["Software Engineering Team Lead", "หัวหน้าทีมวิศวกรรมซอฟต์แวร์"],
     when: ["2018 – 2024", "2018 – 2024"],
     org: ["True Digital", "True Digital"],
     bullets: [
       { h: ["Technical Delivery & Product Alignment", "การส่งมอบเชิงเทคนิคและการสอดประสานกับผลิตภัณฑ์"], t: ["Led end-to-end technical delivery for the TrueID Payment & Subscription system, collaborating with Product Owners to translate business needs into robust architectural designs.", "นำการส่งมอบเชิงเทคนิคแบบครบวงจรของระบบ TrueID Payment & Subscription ร่วมกับ Product Owner เพื่อแปลงความต้องการทางธุรกิจเป็นสถาปัตยกรรมที่แข็งแรง"] },
       { h: ["Quality Control & CI/CD Automation", "การควบคุมคุณภาพและ CI/CD อัตโนมัติ"], t: ["Integrated CI/CD pipelines with comprehensive automated testing prior to production, catching bugs early during deployment and reducing post-release errors.", "เชื่อม CI/CD pipeline เข้ากับการทดสอบอัตโนมัติก่อนขึ้น production จับบั๊กได้เร็วระหว่าง deploy และลดข้อผิดพลาดหลังปล่อยระบบ"] },
-      { h: ["Operational Support & System Stability", "การสนับสนุนการปฏิบัติการและเสถียรภาพของระบบ"], t: ["Engineered monitoring dashboards and served as the Tier-3 escalation point, rapidly resolving production issues to maintain 99.99% uptime for critical revenue-generating services.", "สร้าง dashboard สำหรับ monitoring และเป็นจุด escalation ระดับ Tier-3 แก้ปัญหา production อย่างรวดเร็ว เพื่อรักษา uptime 99.99% ของบริการที่สร้างรายได้หลัก"] },
+      { h: ["Operational Support & System Stability", "การสนับสนุนการปฏิบัติการและเสถียรภาพของระบบ"], t: ["Engineered monitoring dashboards and served as the Tier-3 escalation point, rapidly resolving production issues for critical revenue-generating services.", "สร้าง dashboard สำหรับ monitoring และเป็นจุด escalation ระดับ Tier-3 แก้ปัญหา production อย่างรวดเร็วให้บริการสำคัญที่สร้างรายได้"] },
       { h: ["Agile Leadership & Execution", "ภาวะผู้นำและการดำเนินงานแบบ Agile"], t: ["Championed Agile/Scrum practices by facilitating sprint ceremonies and refining backlogs, ensuring visibility and steady delivery progress.", "ผลักดันแนวปฏิบัติ Agile/Scrum โดยดำเนินกิจกรรม sprint และปรับปรุง backlog เพื่อให้เห็นความคืบหน้าและส่งมอบอย่างสม่ำเสมอ"] },
       { h: ["Team Leadership & Mentorship", "ภาวะผู้นำทีมและการเป็นพี่เลี้ยง"], t: ["Directed and mentored a cross-functional team of 5 (4 Developers, 1 QA), cultivating technical proficiency, collaboration and adherence to shared delivery standards.", "กำกับและเป็นพี่เลี้ยงทีมข้ามสายงาน 5 คน (นักพัฒนา 4 QA 1) พัฒนาทักษะเทคนิค การทำงานร่วมกัน และการยึดมาตรฐานการส่งมอบร่วมกัน"] },
     ],
   },
   {
+    icon: "phone",
     title: ["Senior Frontend Developer", "Senior Frontend Developer"],
     when: ["2017 – 2018", "2017 – 2018"],
     org: ["True Digital", "True Digital"],
@@ -61,6 +68,7 @@ export const jobs: Job[] = [
     ],
   },
   {
+    icon: "cloud",
     title: ["Product Developer", "Product Developer"],
     when: ["2015 – 2017", "2015 – 2017"],
     org: ["RAPID 4 CLOUD", "RAPID 4 CLOUD"],
@@ -70,6 +78,7 @@ export const jobs: Job[] = [
     ],
   },
   {
+    icon: "megaphone",
     title: ["Campaign Developer", "Campaign Developer"],
     when: ["2014 – 2015", "2014 – 2015"],
     org: ["Digital Alchemy", "Digital Alchemy"],

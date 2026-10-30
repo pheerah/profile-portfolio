@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { btnClass } from "./Button";
+import { Glyph } from "./Glyph";
 import { T } from "./T";
 
 export default function CopyEmail({ email }: { email: string }) {
@@ -19,6 +20,7 @@ export default function CopyEmail({ email }: { email: string }) {
         }
       }}
     >
+      <Glyph name={done ? "delivered" : "copy"} size={18} />
       {done ? <T en="Copied ✓" th="คัดลอกแล้ว ✓" /> : <T en="Copy email" th="คัดลอกอีเมล" />}
     </button>
   );

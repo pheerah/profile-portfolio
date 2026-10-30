@@ -12,7 +12,7 @@ export const metadata = pageMetadata({
 
 export default function Projects() {
   return (
-    <main className="wrap">
+    <main id="main" className="wrap">
       <PageHeader
         kicker={["Projects", "โปรเจกต์"]}
         title={["Systems I've helped ", "ระบบที่ฉันมีส่วนช่วย"]}

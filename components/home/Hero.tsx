@@ -1,7 +1,7 @@
-import { RESUME } from "@/lib/site";
+import { FACTS, RESUME, SUMMARY } from "@/lib/site";
 import { Button } from "../ui/Button";
 import { DownloadIcon } from "../ui/Icon";
-import { T } from "../ui/T";
+import { B, T } from "../ui/T";
 import Avatar from "./Avatar";
 
 const TYPED_EN = "complex software|ERP integrations|payment platforms|connected-car apps";
@@ -26,10 +26,7 @@ export default function Hero() {
             <span className="caret" />
           </h1>
           <p>
-            <T
-              en="Project & product delivery leader with 12 years in software. I bridge business, engineering and vendors."
-              th="ผู้นำด้านการส่งมอบโครงการและผลิตภัณฑ์ซอฟต์แวร์ ประสบการณ์ 12 ปี ทำหน้าที่เชื่อมธุรกิจ ทีมวิศวกรรม และเวนเดอร์เข้าด้วยกัน"
-            />
+            <B v={SUMMARY} />
           </p>
           <div className="cta">
             <Button href={RESUME.file} variant="p" download={RESUME.downloadName}>
@@ -40,15 +37,22 @@ export default function Hero() {
               <T en="See case studies →" th="ดูผลงานเชิงลึก →" />
             </Button>
           </div>
+          {FACTS.length > 0 && (
+            <ul className="facts">
+              {FACTS.map((f) => (
+                <li key={f.label[0]}>
+                  <b><B v={f.label} /></b>
+                  <B v={f.value} />
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         <div className="avatar-wrap">
           <div className="ring">
             <b />
           </div>
           <Avatar />
-          <span className="chipf">Agile · Scrum</span>
-          <span className="chipf">ERP · NetSuite</span>
-          <span className="chipf">CI/CD</span>
         </div>
       </div>
     </header>

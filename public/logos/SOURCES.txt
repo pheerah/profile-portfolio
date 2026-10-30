@@ -1,0 +1,10 @@
+Logos downloaded from the Iconify API (https://api.iconify.design) on 2026-10-30.
+Trademarks belong to their owners; shown only to identify the tool or product.
+
+linkedin.svg    logos:linkedin-icon               SVG Logos (CC0-1.0)
+openai.svg      logos:openai-icon                 SVG Logos (CC0-1.0)
+excel.svg       vscode-icons:file-type-excel      vscode-icons (MIT)   https://github.com/vscode-icons/vscode-icons
+powerpoint.svg  vscode-icons:file-type-powerpoint vscode-icons (MIT)
+word.svg        vscode-icons:file-type-word       vscode-icons (MIT)
+
+Brand marks rendered in components/ui/Glyph.tsx come from the simple-icons npm package (CC0).

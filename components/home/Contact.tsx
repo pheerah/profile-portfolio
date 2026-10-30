@@ -1,6 +1,7 @@
 import { RESUME, SITE } from "@/lib/site";
 import { Button } from "../ui/Button";
 import CopyEmail from "../ui/CopyEmail";
+import { Glyph } from "../ui/Glyph";
 import { DownloadIcon } from "../ui/Icon";
 import { T } from "../ui/T";
 
@@ -21,9 +22,15 @@ export default function Contact() {
             <DownloadIcon />
             <T en="Download Résumé (PDF)" th="ดาวน์โหลดเรซูเม่ (PDF)" />
           </Button>
-          <Button href={`mailto:${SITE.email}`}><T en="Email me" th="ส่งอีเมล" /></Button>
+          <Button href={`mailto:${SITE.email}`}>
+            <Glyph name="mail" size={18} />
+            <T en="Email me" th="ส่งอีเมล" />
+          </Button>
           <CopyEmail email={SITE.email} />
-          <Button href={SITE.linkedin}>LinkedIn</Button>
+          <Button href={SITE.linkedin}>
+            <Glyph name="linkedin" size={18} />
+            LinkedIn
+          </Button>
         </div>
       </div>
     </section>

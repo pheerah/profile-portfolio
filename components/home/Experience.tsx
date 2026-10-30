@@ -1,6 +1,7 @@
 import { jobs } from "@/lib/content/experience";
 import { Card } from "../ui/Card";
 import { Section } from "../ui/Section";
+import { Glyph } from "../ui/Glyph";
 import { B } from "../ui/T";
 
 export default function Experience() {
@@ -16,7 +17,7 @@ export default function Experience() {
           <div key={j.title[0] + j.when[0]} className="job rv">
             <Card reveal={false}>
               <div className="top">
-                <h3><B v={j.title} /></h3>
+                <h3><Glyph name={j.icon} size={18} className="jic" /><B v={j.title} /></h3>
                 <span className="when"><B v={j.when} /></span>
               </div>
               <div className="org"><B v={j.org} /></div>
