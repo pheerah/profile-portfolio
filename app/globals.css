@@ -42,7 +42,16 @@ nav a.l:hover,nav a.l.on{color:var(--ink);background:var(--glow)}
 .btn.g:hover{border-color:var(--accent)}
 .btn.sm{padding:8px 16px;font-size:14px;border-radius:10px}
 .btn svg{width:18px;height:18px}
-@media(max-width:760px){nav a.l{display:none}}
+.navlinks{display:contents}
+.menu-btn{display:none}
+@media(max-width:760px){
+  .menu-btn{display:grid}
+  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:2px;padding:8px 22px 16px;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  nav[data-open] .navlinks{display:flex}
+  nav .navlinks a.l{display:flex;align-items:center;min-height:48px;padding:10px 14px;font-size:16px;border-radius:12px}
+  nav .tool,nav .menu-btn{min-width:40px;height:40px}
+}
+@media(max-width:480px){.btn-label{display:none}nav .btn.sm{padding:0;width:40px;height:40px;justify-content:center}}
 
 /* hero */
 .hero{position:relative;overflow:hidden;background:linear-gradient(160deg,#0e1738 0%,#1B2A5C 55%,#2c3f80 100%);color:#fff;padding:92px 0 120px}
@@ -157,7 +166,7 @@ footer{padding:44px 0 56px;text-align:center;color:var(--mute);font-size:14px}
 .proj{padding:0;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s ease-out,box-shadow .25s,border-color .25s,opacity .35s}
 .proj[data-hide]{display:none}
 .proj .body{padding:22px 24px 24px}
-.proj h3{margin:0 0 4px;font-size:20px}
+.proj h2{margin:0 0 4px;font-size:20px;letter-spacing:-.2px;line-height:1.3}
 .proj .org{color:var(--accent);font-size:13px;font-weight:700;margin-bottom:8px}
 .proj p{margin:0 0 14px;color:var(--mute);font-size:15px}
 .proj .tg{display:flex;flex-wrap:wrap;gap:6px}
@@ -219,7 +228,7 @@ html[data-theme="dark"] .tool .i-moon{display:none}
 .cs{margin-bottom:30px;scroll-margin-top:90px}
 .cs .meta{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 16px}
 .cs .meta span{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--glow);color:var(--accent-strong)}
-.cs h4{margin:18px 0 6px;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent)}
+.cs .cs-h{margin:18px 0 6px;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent)}
 .cs ul{margin:0;padding-left:18px;color:var(--ink);font-size:15px}
 .cs li{margin-bottom:4px}
 .cs p{margin:0 0 6px}
@@ -282,8 +291,8 @@ nav a.l.cur{color:var(--ink);background:var(--glow)}
 .how .n svg{display:block}
 .job h3{display:flex;align-items:center;gap:10px}
 .job .jic{flex:none;color:var(--accent)}
-.cs h4{display:flex;align-items:center;gap:8px}
-.cs h4 svg{flex:none}
+.cs .cs-h{display:flex;align-items:center;gap:8px}
+.cs .cs-h svg{flex:none}
 .btn svg{flex:none}
 
 /* skills, tools, credentials */
@@ -330,7 +339,7 @@ html[data-theme="dark"] .st.vision{background:rgba(247,201,72,.14);color:#F7C948
 
 /* folded experience bullets */
 .jmore{margin-top:2px}
-.jmore summary{display:inline-flex;align-items:center;gap:6px;margin:4px 0 0 18px;padding:3px 12px;border-radius:999px;background:var(--glow);color:var(--accent-strong);font-size:13px;font-weight:700;cursor:pointer;list-style:none}
+.jmore summary{display:inline-flex;align-items:center;gap:6px;margin:6px 0 0 18px;padding:8px 16px;min-height:40px;border-radius:999px;background:var(--glow);color:var(--accent-strong);font-size:13px;font-weight:700;cursor:pointer;list-style:none}
 .jmore summary::-webkit-details-marker{display:none}
 .jmore summary:after{content:"+";font-weight:800}
 .jmore[open] summary:after{content:"2"}
@@ -381,3 +390,12 @@ html[data-theme="dark"] img[src$="/openai.svg"]{filter:invert(1)}
 :root[data-theme="light"] .glyph-big{background:rgba(255,255,255,.78);border-color:#fff;color:#C2456B}
 /* feature cards: pastel pink so pink stays the accent against the blue cards */
 :root[data-theme="light"] .card.vision,:root[data-theme="light"] .dl{background:#FCE4EE;border-color:#F3C7D8}
+
+/* diagrams: below ~620px keep a readable drawing width and scroll sideways instead of shrinking the text */
+.dscroll{overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+.dscroll:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:8px}
+.dhint{display:none}
+@media(max-width:620px){
+  .dscroll svg{min-width:var(--dmin,500px)}
+  .diagram .dhint{display:block;margin:6px 0 0;text-align:center;font-size:11px;font-weight:700;letter-spacing:.4px;color:var(--d-sub)}
+}

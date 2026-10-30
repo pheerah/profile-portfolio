@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactElement } from "react";
+import { T } from "../ui/T";
 import type { DiagramKey } from "@/lib/content/projects";
 
 /**
@@ -174,7 +175,10 @@ function AiTeamDiagram() {
   );
 }
 
-export function Diagram({ name }: { name: DiagramKey }): ReactElement {
+/** Smallest drawing width (px) that keeps the text near 11px or more on phones. */
+const MIN_WIDTH: Record<DiagramKey, number> = { netsuite: 500, team: 500, release: 500, uat: 500, aiteam: 560 };
+
+function drawing(name: DiagramKey): ReactElement {
   switch (name) {
     case "uat":
       return <UatDiagram />;
@@ -187,4 +191,20 @@ export function Diagram({ name }: { name: DiagramKey }): ReactElement {
     case "release":
       return <ReleaseDiagram />;
   }
+}
+
+export function Diagram({ name }: { name: DiagramKey }): ReactElement {
+  // `name` is a typed union from our own content files, never user input.
+  // eslint-disable-next-line security/detect-object-injection
+  const style = { "--dmin": `${MIN_WIDTH[name]}px` } as CSSProperties;
+  return (
+    <>
+      <div className="dscroll" style={style} role="group" tabIndex={0} aria-label="Diagram (scrolls sideways on small screens)">
+        {drawing(name)}
+      </div>
+      <span className="dhint" aria-hidden="true">
+        <T en="↔ swipe to see all" th="↔ ปัดดูทั้งหมด" />
+      </span>
+    </>
+  );
 }
