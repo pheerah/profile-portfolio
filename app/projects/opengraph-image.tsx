@@ -9,6 +9,6 @@ export default function OgImage() {
   return ogImage({
     kicker: "Projects",
     title: "Systems I've helped bring to life",
-    subtitle: `True iService · TrueID · T Connected · NetSuite ERP — ${SITE.name}`,
+    subtitle: `True iService · TrueID · T Connected · NetSuite ERP · AI-built tools — ${SITE.name}`,
   });
 }

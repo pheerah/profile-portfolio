@@ -1,10 +1,31 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import { ImageResponse } from "next/og";
 import { SITE } from "./site";
 
 export const ogSize = { width: 1200, height: 630 };
 
+const FONT_DIR = path.join(process.cwd(), "node_modules", "@fontsource", "plus-jakarta-sans", "files");
+
+/** The site font in regular and extra-bold, read at build time (the default font has no bold weight). */
+async function loadFonts() {
+  const read = (file: string) =>
+    // Constant file names inside our own dependency folder; no user input reaches this path.
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    readFile(path.join(FONT_DIR, file));
+  const [regular, bold] = await Promise.all([
+    read("plus-jakarta-sans-latin-400-normal.woff"),
+    read("plus-jakarta-sans-latin-800-normal.woff"),
+  ]);
+  return [
+    { name: "Jakarta", data: regular, weight: 400 as const, style: "normal" as const },
+    { name: "Jakarta", data: bold, weight: 800 as const, style: "normal" as const },
+  ];
+}
+
 /** One OG-image template; each route passes its own heading. Rendered at build time. */
-export function ogImage({ kicker, title, subtitle }: { kicker: string; title: string; subtitle: string }) {
+export async function ogImage({ kicker, title, subtitle }: { kicker: string; title: string; subtitle: string }) {
+  const fonts = await loadFonts();
   return new ImageResponse(
     (
       <div
@@ -17,6 +38,7 @@ export function ogImage({ kicker, title, subtitle }: { kicker: string; title: st
           padding: "0 84px",
           background: "linear-gradient(150deg,#F6FAFE 0%,#E5F1FB 45%,#FBE3EE 100%)",
           color: "#1B2A5C",
+          fontFamily: "Jakarta",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
@@ -44,6 +66,6 @@ export function ogImage({ kicker, title, subtitle }: { kicker: string; title: st
         <div style={{ fontSize: 34, marginTop: 24, color: "#4A5688" }}>{subtitle}</div>
       </div>
     ),
-    ogSize
+    { ...ogSize, fonts }
   );
 }

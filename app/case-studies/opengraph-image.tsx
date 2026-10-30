@@ -9,6 +9,6 @@ export default function OgImage() {
   return ogImage({
     kicker: "Case studies",
     title: "How the work got delivered",
-    subtitle: `NetSuite ERP · T Connected · TrueID Payment & Subscription — ${SITE.name}`,
+    subtitle: `NetSuite ERP · UAT Tracker · T Connected · TrueID — ${SITE.name}`,
   });
 }

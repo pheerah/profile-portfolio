@@ -32,7 +32,7 @@ export default function ProjectCard({ project: p, index, hidden }: { project: Pr
         {shots.length > 1 ? <div className="dual">{shots}</div> : shots}
       </div>
       <div className="body">
-        <h3><B v={p.title} /></h3>
+        <h2><B v={p.title} /></h2>
         {p.status && (
           <span className={p.status.live ? "st live" : "st dev"}><B v={p.status.label} /></span>
         )}

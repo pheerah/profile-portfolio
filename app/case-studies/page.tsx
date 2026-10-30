@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Case studies – Pheerah Praditthaphong",
   description:
-    "Three delivery case studies: NetSuite ERP integration, the T Connected application and the TrueID Payment & Subscription platform.",
+    "Delivery case studies: NetSuite ERP integration, the UAT Tracker for the SPC New ERP, the T Connected application and the TrueID Payment & Subscription platform.",
   path: "/case-studies",
 });
 
@@ -19,7 +19,7 @@ export default function CaseStudies() {
         kicker={["Case studies", "ผลงานเชิงลึก"]}
         title={["How the work ", "งานเกิดขึ้น"]}
         accent={["got delivered", "อย่างไร"]}
-        lead={["Context, my role, what I did and what was delivered, on three projects.", "บริบท บทบาทของฉัน สิ่งที่ทำ และสิ่งที่ส่งมอบ จากสามโครงการ"]}
+        lead={["Context, my role, what I did and what was delivered, project by project.", "บริบท บทบาทของฉัน สิ่งที่ทำ และสิ่งที่ส่งมอบ ของแต่ละโครงการ"]}
       >
         <div className="toc">
           {cases.map((c) => (

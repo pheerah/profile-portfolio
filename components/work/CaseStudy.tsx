@@ -7,10 +7,10 @@ import { Diagram } from "./Diagrams";
 
 function H4({ icon, children }: { icon: GlyphName; children: React.ReactNode }) {
   return (
-    <h4>
+    <h3 className="cs-h">
       <Glyph name={icon} size={16} />
       {children}
-    </h4>
+    </h3>
   );
 }
 

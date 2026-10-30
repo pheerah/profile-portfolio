@@ -1,11 +1,15 @@
 import type { ReactNode } from "react";
 
-/** Bilingual text. Both languages are rendered; CSS shows the one matching <html data-lang>. */
+/**
+ * Bilingual text. Both languages are rendered; CSS shows the one matching <html data-lang>.
+ * Each span declares its language, and the Thai one is kept out of search snippets so a result
+ * for the English page never shows Thai text.
+ */
 export function T({ en, th }: { en: ReactNode; th: ReactNode }) {
   return (
     <>
-      <span data-l="en">{en}</span>
-      <span data-l="th">{th}</span>
+      <span data-l="en" lang="en">{en}</span>
+      <span data-l="th" lang="th" data-nosnippet>{th}</span>
     </>
   );
 }

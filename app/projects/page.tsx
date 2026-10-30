@@ -6,7 +6,8 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Projects – Pheerah Praditthaphong",
-  description: "Selected systems delivered: True iService, TrueID My Account, T Connected and NetSuite ERP integration.",
+  description:
+    "Selected systems delivered (True iService, TrueID My Account, T Connected, NetSuite ERP integration) and tools built with AI coding agents (UAT Tracker, Horoscope, TeamFlow).",
   path: "/projects",
 });
 
