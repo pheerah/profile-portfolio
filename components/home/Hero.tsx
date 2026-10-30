@@ -1,6 +1,6 @@
-import { FACTS, RESUME, SUMMARY } from "@/lib/site";
-import { Button } from "../ui/Button";
+import { FACTS, SUMMARY } from "@/lib/site";
 import { DownloadIcon } from "../ui/Icon";
+import ResumeButton from "../ui/ResumeButton";
 import { B, T } from "../ui/T";
 import Avatar from "./Avatar";
 
@@ -29,13 +29,10 @@ export default function Hero() {
             <B v={SUMMARY} />
           </p>
           <div className="cta">
-            <Button href={RESUME.file} variant="p" download={RESUME.downloadName}>
+            <ResumeButton where="hero">
               <DownloadIcon />
               <T en="Download Résumé (PDF)" th="ดาวน์โหลดเรซูเม่ (PDF)" />
-            </Button>
-            <Button href="/case-studies">
-              <T en="See case studies →" th="ดูผลงานเชิงลึก →" />
-            </Button>
+            </ResumeButton>
           </div>
           {FACTS.length > 0 && (
             <ul className="facts">

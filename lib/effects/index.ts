@@ -2,7 +2,7 @@ import { createContext } from "./context";
 import { tiltCards } from "./pointer";
 import { heroParticles } from "./particles";
 import { countUp, revealOnScroll } from "./reveal";
-import { scrollProgress, scrollSpy } from "./scroll";
+import { openFoldsForPrint, scrollProgress, scrollSpy } from "./scroll";
 import { typedHeadline } from "./typed";
 
 /**
@@ -17,6 +17,7 @@ export function initEffects(): () => void {
   scrollSpy(ctx);
   revealOnScroll(ctx);
   countUp(ctx);
+  openFoldsForPrint(ctx);
 
   if (!ctx.reduceMotion) {
     tiltCards(ctx);

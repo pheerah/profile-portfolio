@@ -318,3 +318,24 @@ html[data-theme="dark"] .st.vision{color:#a5b4fc}
 .workstrip a:hover{border-color:var(--accent);transform:translateY(-2px)}
 .wsic{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:var(--glow);color:var(--accent)}
 .wsic svg{width:22px;height:22px}
+
+/* folded experience bullets */
+.jmore{margin-top:2px}
+.jmore summary{display:inline-flex;align-items:center;gap:6px;margin:4px 0 0 18px;padding:3px 12px;border-radius:999px;background:var(--glow);color:var(--accent);font-size:13px;font-weight:700;cursor:pointer;list-style:none}
+.jmore summary::-webkit-details-marker{display:none}
+.jmore summary:after{content:"+";font-weight:800}
+.jmore[open] summary:after{content:"2"}
+.jmore .s-less{display:none}
+.jmore[open] .s-more{display:none}
+.jmore[open] .s-less{display:inline}
+html[data-lang="th"] .jmore[open] .s-less [data-l="en"]{display:none}
+.jmore ul{margin-top:6px}
+
+/* résumé preview next to the download card */
+.dl.withpreview{display:grid;grid-template-columns:200px 1fr;gap:34px;text-align:left;align-items:center}
+.dl.withpreview .cta{justify-content:flex-start}
+.dl.withpreview p{margin-left:0}
+.dl.withpreview > a.btn{display:block;padding:0;border-radius:10px;border:1px solid var(--line);box-shadow:var(--shadow);background:#fff;overflow:hidden;transform:rotate(-2deg);transition:transform .25s}
+.dl.withpreview > a.btn:hover{transform:rotate(0) translateY(-3px)}
+.rpv{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(#000 82%,transparent);mask-image:linear-gradient(#000 82%,transparent)}
+@media(max-width:760px){.dl.withpreview{grid-template-columns:1fr;text-align:center}.dl.withpreview > a.btn{width:170px;margin:0 auto}.dl.withpreview .cta{justify-content:center}}

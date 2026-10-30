@@ -35,3 +35,17 @@ export function scrollSpy(ctx: Ctx) {
   );
   sections.forEach((s) => io.observe(s));
 }
+
+/** Folded experience bullets (<details>) are opened while printing so the paper copy is complete. */
+export function openFoldsForPrint({ signal }: Ctx) {
+  let reopened: HTMLDetailsElement[] = [];
+  addEventListener(
+    "beforeprint",
+    () => {
+      reopened = qa<HTMLDetailsElement>("details.jmore").filter((d) => !d.open);
+      reopened.forEach((d) => (d.open = true));
+    },
+    { signal }
+  );
+  addEventListener("afterprint", () => reopened.forEach((d) => (d.open = false)), { signal });
+}

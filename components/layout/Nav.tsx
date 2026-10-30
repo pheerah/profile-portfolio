@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getPref, setPref } from "@/lib/prefs";
-import { NAV, RESUME } from "@/lib/site";
-import { Button } from "../ui/Button";
+import { NAV } from "@/lib/site";
 import { DownloadIcon } from "../ui/Icon";
+import ResumeButton from "../ui/ResumeButton";
 import { B, T } from "../ui/T";
 
 const MoonIcon = () => (
@@ -32,8 +32,8 @@ export default function Nav() {
         {NAV.map((n) => (
           <Link
             key={n.href}
-            className={n.match && path.startsWith(n.match) ? "l on" : "l"}
-            aria-current={n.match && path.startsWith(n.match) ? "page" : undefined}
+            className={n.match?.some((m) => path.startsWith(m)) ? "l on" : "l"}
+            aria-current={n.match?.some((m) => path.startsWith(m)) ? "page" : undefined}
             href={n.href}
           >
             <B v={n.label} />
@@ -56,10 +56,10 @@ export default function Nav() {
             <SunIcon />
           </button>
         </div>
-        <Button href={RESUME.file} variant="p" small download={RESUME.downloadName}>
+        <ResumeButton where="nav" small>
           <DownloadIcon />
           <T en="Résumé" th="เรซูเม่" />
-        </Button>
+        </ResumeButton>
       </div>
     </nav>
   );

@@ -25,6 +25,7 @@ export const SUMMARY: Bi = [
  * Leave empty until the owner confirms them; nothing renders while the list is empty.
  */
 export const FACTS: { label: Bi; value: Bi }[] = [
+  { label: ["Location", "ที่ตั้ง"], value: ["Bangkok, Thailand", "กรุงเทพฯ ประเทศไทย"] },
   // From the résumé. Add "Target roles" / "Work mode" here once the owner confirms them.
   { label: ["Languages", "ภาษา"], value: ["Thai (native) · English (working)", "ไทย (เจ้าของภาษา) · อังกฤษ (ระดับทำงาน)"] },
   { label: ["Certified", "ใบรับรอง"], value: ["CompTIA Project+ · ITIL Foundation", "CompTIA Project+ · ITIL Foundation"] },
@@ -43,13 +44,12 @@ export const ROUTES = [
   { path: "/projects", priority: 0.7 },
 ] as const;
 
-export type NavItem = { href: string; label: Bi; match?: string };
+export type NavItem = { href: string; label: Bi; match?: string[] };
 
 export const NAV: NavItem[] = [
   { href: "/#about", label: ["About", "เกี่ยวกับ"] },
   { href: "/#exp", label: ["Experience", "ประสบการณ์"] },
   { href: "/#ai", label: ["Built with AI", "สร้างด้วย AI"] },
-  { href: "/case-studies", label: ["Case studies", "ผลงานเชิงลึก"], match: "/case-studies" },
-  { href: "/projects", label: ["Projects", "โปรเจกต์"], match: "/projects" },
+  { href: "/projects", label: ["Projects & case studies", "โปรเจกต์และผลงานเชิงลึก"], match: ["/projects", "/case-studies"] },
   { href: "/#contact", label: ["Contact", "ติดต่อ"] },
 ];
