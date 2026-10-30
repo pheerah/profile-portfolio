@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { B, type Bi } from "./T";
 
 const accentStyle = {
-  background: "linear-gradient(90deg,var(--accent),var(--accent2))",
+  background: "linear-gradient(90deg,var(--accent),var(--ink))",
   WebkitBackgroundClip: "text",
   backgroundClip: "text",
   color: "transparent",

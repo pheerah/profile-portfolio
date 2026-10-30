@@ -8,7 +8,7 @@ import { Diagram } from "./Diagrams";
 
 /** One project tile: gradient stage (real screenshots in device frames, or a résumé-fact diagram), then text. */
 export default function ProjectCard({ project: p, index, hidden }: { project: Project; index: number; hidden: boolean }) {
-  const style = { "--c1": p.c1, "--c2": p.c2 } as CSSProperties;
+  const style = { "--c1": p.c1, "--c2": p.c2, "--p1": p.p1, "--p2": p.p2 } as CSSProperties;
   const shots = p.shots.map((s) => (
     <div key={s.src} className={`dev ${s.cls}`} style={s.height ? { height: s.height } : undefined}>
       {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -15,8 +15,8 @@ export function ogImage({ kicker, title, subtitle }: { kicker: string; title: st
           flexDirection: "column",
           justifyContent: "center",
           padding: "0 84px",
-          background: "linear-gradient(160deg,#071a1e 0%,#0e3a40 55%,#17335c 100%)",
-          color: "#fff",
+          background: "linear-gradient(150deg,#F6FAFE 0%,#E5F1FB 45%,#FBE3EE 100%)",
+          color: "#1B2A5C",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
@@ -25,7 +25,8 @@ export function ogImage({ kicker, title, subtitle }: { kicker: string; title: st
               width: 64,
               height: 64,
               borderRadius: 18,
-              background: "linear-gradient(135deg,#14b8a6,#6366f1)",
+              background: "linear-gradient(135deg,#C2456B,#A8365A)",
+              color: "#fff",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -35,12 +36,12 @@ export function ogImage({ kicker, title, subtitle }: { kicker: string; title: st
           >
             PP
           </div>
-          <div style={{ fontSize: 28, color: "#9ff0e2", fontWeight: 700 }}>
+          <div style={{ fontSize: 28, color: "#8A2848", fontWeight: 700 }}>
             {`${kicker} · ${SITE.url.replace("https://", "")}`}
           </div>
         </div>
         <div style={{ fontSize: 80, fontWeight: 800, lineHeight: 1.05, marginTop: 36, letterSpacing: -2 }}>{title}</div>
-        <div style={{ fontSize: 34, marginTop: 24, color: "#c4dadd" }}>{subtitle}</div>
+        <div style={{ fontSize: 34, marginTop: 24, color: "#4A5688" }}>{subtitle}</div>
       </div>
     ),
     ogSize

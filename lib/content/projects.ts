@@ -14,6 +14,9 @@ export type Project = {
   tags: string[]; // filter categories
   c1: string;
   c2: string;
+  /** Pastel stage colours used in the light theme. */
+  p1: string;
+  p2: string;
   body: Bi;
   chips: string[];
   shots: Shot[];
@@ -33,6 +36,8 @@ export const projects: Project[] = [
     tags: ["web", "mobile"],
     c1: "#7c1d1d",
     c2: "#be123c",
+    p1: "#FDE3E6",
+    p2: "#F8C9D4",
     body: [
       "Self-service web and mobile app. Built responsive interfaces and integrated backend microservices; enforced GitFlow and CI/CD build validation.",
       "เว็บและแอปบริการตนเอง พัฒนาหน้าจอแบบ responsive และเชื่อม microservice ฝั่งหลังบ้าน พร้อมกำกับ GitFlow และการตรวจ build ผ่าน CI/CD",
@@ -47,6 +52,8 @@ export const projects: Project[] = [
     tags: ["web", "mobile"],
     c1: "#9a1b1b",
     c2: "#ea580c",
+    p1: "#FFE8DA",
+    p2: "#FBD3C7",
     body: [
       "Account experience within the TrueID ecosystem, alongside the TrueID Payment & Subscription platform.",
       "ประสบการณ์บัญชีผู้ใช้ในระบบนิเวศ TrueID ควบคู่กับแพลตฟอร์ม TrueID Payment & Subscription",
@@ -61,6 +68,8 @@ export const projects: Project[] = [
     tags: ["mobile"],
     c1: "#7f1d1d",
     c2: "#111827",
+    p1: "#FBE0E0",
+    p2: "#E4E8F4",
     body: [
       "Connected-car application. Directed full-lifecycle delivery across 2 BAs, 2 SAs and 2 external vendor developer teams, within scope, budget and time.",
       "แอปรถยนต์เชื่อมต่อ กำกับการส่งมอบตลอดวงจรร่วมกับ BA 2 คน SA 2 คน และทีมนักพัฒนาเวนเดอร์ภายนอก 2 ทีม ตามขอบเขต งบประมาณ และเวลา",
@@ -76,8 +85,10 @@ export const projects: Project[] = [
     org: ["Always Pioneering Innovation · Saha Pathanapibul · 2026 – Present", "Always Pioneering Innovation · Saha Pathanapibul · 2026 – ปัจจุบัน"],
     badge: ["ERP", "ERP"],
     tags: ["erp", "web"],
-    c1: "#0e3a40",
-    c2: "#1e3a8a",
+    c1: "#1B2A5C",
+    c2: "#2c3f80",
+    p1: "#E5F1FB",
+    p2: "#CFE3F5",
     body: [
       "End-to-end ERP project framework and integration of internal applications with NetSuite, validating 40+ API endpoints with vendors and business users.",
       "เฟรมเวิร์กโครงการ ERP แบบครบวงจรและการเชื่อมแอปภายในกับ NetSuite ตรวจสอบ API endpoint กว่า 40 รายการร่วมกับเวนเดอร์และผู้ใช้งานฝั่งธุรกิจ",
@@ -91,8 +102,10 @@ export const projects: Project[] = [
     org: ["Saha Pathanapibul · NetSuite · 2026 – Present", "สหพัฒนภิบูล · NetSuite · 2026 – ปัจจุบัน"],
     badge: ["AI-built", "สร้างด้วย AI"],
     tags: ["ai", "web", "erp"],
-    c1: "#134e4a",
-    c2: "#4338ca",
+    c1: "#1B2A5C",
+    c2: "#2c3f80",
+    p1: "#E5F1FB",
+    p2: "#D3E4F6",
     body: [
       "System for running user acceptance testing of the SPC New ERP (NetSuite) for Saha Pathanapibul users: a daily test plan, scenario details, a page to record test results, and a user guide.",
       "ระบบสำหรับทำ UAT ของ SPC New ERP (NetSuite) ให้ผู้ใช้ของบริษัทสหพัฒนภิบูล มีแผนทดสอบรายวัน รายละเอียด scenario หน้าบันทึกผลทดสอบ และคู่มือการใช้งาน",
@@ -107,8 +120,10 @@ export const projects: Project[] = [
     org: ["Web app", "เว็บแอป"],
     badge: ["AI-built", "สร้างด้วย AI"],
     tags: ["ai", "web"],
-    c1: "#312e81",
-    c2: "#7c3aed",
+    c1: "#C2456B",
+    c2: "#8A2848",
+    p1: "#FBE3EE",
+    p2: "#F3C7D8",
     body: [
       "Astrology web app: daily and monthly horoscope readings from the stars, tarot card draws and lottery lucky numbers.",
       "เว็บแอปดูดวง ทำนายจากดวงดาวรายวัน/รายเดือน เปิดไพ่ทาโร่ และดูเลขเด็ด",
@@ -123,8 +138,10 @@ export const projects: Project[] = [
     org: ["Team project management", "ระบบบริหารโครงการสำหรับทีม"],
     badge: ["AI-built", "สร้างด้วย AI"],
     tags: ["ai", "web"],
-    c1: "#0f766e",
-    c2: "#1d4ed8",
+    c1: "#1B2A5C",
+    c2: "#3a56a8",
+    p1: "#E1F0FB",
+    p2: "#D6E6F7",
     body: [
       "Project management system for organising a team's tasks, in the spirit of Jira and ClickUp.",
       "ระบบบริหารโครงการสำหรับจัดการงานของทีม แนวเดียวกับ Jira / ClickUp",

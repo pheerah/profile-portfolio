@@ -13,6 +13,16 @@ export function heroParticles({ signal, alive, onDispose }: Ctx) {
   let dots: P[] = [];
   const mouse = { x: -999, y: -999 };
 
+  // Dot colour comes from CSS (--fx, "r,g,b") so it follows the light/dark theme.
+  let fx = "247,201,72";
+  const readFx = () => {
+    fx = getComputedStyle(cv).getPropertyValue("--fx").trim() || fx;
+  };
+  readFx();
+  const themeWatch = new MutationObserver(readFx);
+  themeWatch.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  onDispose(() => themeWatch.disconnect());
+
   const resize = () => {
     W = cv.width = cv.offsetWidth;
     H = cv.height = cv.offsetHeight;
@@ -55,7 +65,7 @@ export function heroParticles({ signal, alive, onDispose }: Ctx) {
         p.x += ((p.x - mouse.x) / dm) * 1.2;
         p.y += ((p.y - mouse.y) / dm) * 1.2;
       }
-      ctx.fillStyle = "rgba(160,240,226,.8)";
+      ctx.fillStyle = `rgba(${fx},.8)`;
       ctx.beginPath();
       ctx.arc(p.x, p.y, 1.8, 0, 7);
       ctx.fill();
@@ -63,7 +73,7 @@ export function heroParticles({ signal, alive, onDispose }: Ctx) {
         const q = dots[j];
         const d = Math.hypot(p.x - q.x, p.y - q.y);
         if (d < 110) {
-          ctx.strokeStyle = `rgba(160,240,226,${0.22 * (1 - d / 110)})`;
+          ctx.strokeStyle = `rgba(${fx},${0.22 * (1 - d / 110)})`;
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(q.x, q.y);
