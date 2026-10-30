@@ -1,4 +1,4 @@
-import type { Bi } from "@/components/T";
+import type { Bi } from "@/components/ui/T";
 
 /** Case studies use only facts already in the résumé. No invented outcomes or numbers. */
 export type Case = {
@@ -19,12 +19,12 @@ export const cases: Case[] = [
     org: ["Always Pioneering Innovation · client Saha Pathanapibul · 2026 – Present", "Always Pioneering Innovation · ลูกค้า Saha Pathanapibul · 2026 – ปัจจุบัน"],
     tags: ["ERP", "NetSuite", "Vendors", "Governance"],
     context: [
-      "Saha Pathanapibul needed its internal applications to exchange data reliably with NetSuite ERP, with several parties involved: business users, internal teams and NetSuite vendors.",
-      "Saha Pathanapibul ต้องการให้แอปพลิเคชันภายในแลกเปลี่ยนข้อมูลกับ NetSuite ERP ได้อย่างเชื่อถือได้ โดยมีหลายฝ่ายเกี่ยวข้อง ทั้งผู้ใช้งานฝั่งธุรกิจ ทีมภายใน และเวนเดอร์ NetSuite",
+      "Integration of Saha Pathanapibul's internal applications with NetSuite ERP, involving business users, internal teams and NetSuite vendors.",
+      "การเชื่อมต่อแอปพลิเคชันภายในของ Saha Pathanapibul กับ NetSuite ERP โดยมีผู้ใช้งานฝั่งธุรกิจ ทีมภายใน และเวนเดอร์ NetSuite เกี่ยวข้อง",
     ],
     role: [
-      "Project Manager: owned the delivery framework and the alignment between business, engineering and vendors.",
-      "Project Manager: รับผิดชอบเฟรมเวิร์กการส่งมอบ และการสอดประสานระหว่างฝ่ายธุรกิจ วิศวกรรม และเวนเดอร์",
+      "Project Manager: established the ERP project framework, directed the integration and kept business, engineering and vendors aligned.",
+      "Project Manager: วางเฟรมเวิร์กโครงการ ERP กำกับการเชื่อมต่อ และประสานให้ฝ่ายธุรกิจ วิศวกรรม และเวนเดอร์ไปในทิศทางเดียวกัน",
     ],
     did: [
       ["Established end-to-end ERP project frameworks, from planning to deployment.", "วางเฟรมเวิร์กโครงการ ERP แบบครบวงจร ตั้งแต่วางแผนจนถึง deploy"],
@@ -69,8 +69,8 @@ export const cases: Case[] = [
     org: ["True Digital · 2018 – 2024", "True Digital · 2018 – 2024"],
     tags: ["Payments", "CI/CD", "Monitoring", "Agile"],
     context: [
-      "A revenue-generating payment and subscription platform where stability and release quality directly mattered.",
-      "แพลตฟอร์มชำระเงินและสมาชิกที่สร้างรายได้ ซึ่งเสถียรภาพและคุณภาพการปล่อยระบบส่งผลโดยตรงต่อธุรกิจ",
+      "The TrueID Payment & Subscription system, supporting critical revenue-generating services.",
+      "ระบบ TrueID Payment & Subscription ซึ่งรองรับบริการสำคัญที่สร้างรายได้",
     ],
     role: [
       "Software Engineering Team Lead: led technical delivery with Product Owners and ran the team's Agile practices.",

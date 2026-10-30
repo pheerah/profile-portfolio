@@ -1,12 +1,11 @@
 import type { MetadataRoute } from "next";
-
-const SITE = "https://pheerah.vercel.app";
+import { ROUTES, SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ["", "/case-studies", "/projects"].map((p) => ({
-    url: SITE + p,
+  return ROUTES.map((r) => ({
+    url: SITE.url + (r.path === "/" ? "" : r.path),
     lastModified: new Date(),
     changeFrequency: "monthly",
-    priority: p === "" ? 1 : 0.7,
+    priority: r.priority,
   }));
 }

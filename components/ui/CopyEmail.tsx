@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { btnClass } from "./Button";
 import { T } from "./T";
 
 export default function CopyEmail({ email }: { email: string }) {
   const [done, setDone] = useState(false);
   return (
     <button
-      className="btn g"
+      className={btnClass("g")}
       onClick={async () => {
         try {
           await navigator.clipboard.writeText(email);

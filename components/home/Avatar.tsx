@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { SITE } from "@/lib/site";
 
-/** Profile photo with a text fallback. Put the photo at public/img/profile.jpg. */
+/** Profile photo with a text fallback. Put the photo at public/img/profile.jpg (see SITE.profilePhoto). */
 export default function Avatar() {
   const [ok, setOk] = useState(false);
 
@@ -10,7 +11,7 @@ export default function Avatar() {
   useEffect(() => {
     const im = new window.Image();
     im.onload = () => setOk(true);
-    im.src = "/img/profile.jpg";
+    im.src = SITE.profilePhoto;
   }, []);
 
   return (
@@ -18,7 +19,7 @@ export default function Avatar() {
       {!ok && "PP"}
       {ok && (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src="/img/profile.jpg" alt="Pheerah Praditthaphong" />
+        <img src={SITE.profilePhoto} alt={SITE.name} />
       )}
     </div>
   );
