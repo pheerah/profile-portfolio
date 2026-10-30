@@ -18,11 +18,6 @@ export const RESUME = {
   /** Default résumé used by the main download buttons. */
   file: "/resume.pdf",
   downloadName: "Pheerah_Praditthaphong_Resume.pdf",
-  byRole: [
-    { href: "/resume-it-project-manager.pdf", label: "IT Project Manager" },
-    { href: "/resume-product-manager.pdf", label: "Product Manager" },
-    { href: "/resume-product-owner.pdf", label: "Product Owner" },
-  ],
 } as const;
 
 /** Public routes; used by the sitemap and anything that needs the list. */

@@ -36,7 +36,7 @@ public/                 résumé PDFs, project images, profile photo
 - **Wording / facts:** `lib/content/*.ts` and `lib/site.ts`. Bilingual text is `[english, thai]` tuples (`Bi`).
 - **Add a project / case study / job:** add an entry to `projects.ts` / `cases.ts` / `experience.ts`; the pages render the list.
 - **Profile photo:** save it as `public/img/profile.jpg`; it appears in the hero automatically (falls back to "PP").
-- **Résumé PDFs:** built by `../build_resume.py` (`RESUME_PUBLIC=1` for the web version) and copied to `public/resume*.pdf`.
+- **Résumé PDFs:** built by `../build_resume.py` (`RESUME_PUBLIC=1` for the web version) and copied to `public/resume.pdf` (one résumé only).
 - **New animation:** add a function in `lib/effects/`, register it in `lib/effects/index.ts`.
 
 ## Deploy

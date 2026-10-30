@@ -25,15 +25,6 @@ export default function Contact() {
           <CopyEmail email={SITE.email} />
           <Button href={SITE.linkedin}>LinkedIn</Button>
         </div>
-        <div className="alt">
-          <T en="Role-specific versions:" th="เวอร์ชันตามตำแหน่ง:" />
-          {RESUME.byRole.map((r, i) => (
-            <span key={r.href}>
-              <a href={r.href} download>{r.label}</a>
-              {i < RESUME.byRole.length - 1 ? "·" : ""}
-            </span>
-          ))}
-        </div>
       </div>
     </section>
   );
