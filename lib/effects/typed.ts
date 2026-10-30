@@ -1,31 +1,23 @@
 import type { Ctx } from "./context";
 
 /**
- * Typewriter for [data-typed] (English) with an optional [data-typed-th].
- * Words are "|"-separated; the language is re-read each cycle so the switch applies live.
+ * Types the first phrase of [data-typed] once (Thai from [data-typed-th] when the page is Thai), then stops
+ * and removes the caret, so the headline never changes while someone is reading it.
+ * Phrases are "|"-separated; only the first is typed.
  */
 export function typedHeadline({ later }: Ctx) {
   const el = document.querySelector<HTMLElement>("[data-typed]");
   if (!el) return;
-  const wordsFor = () =>
-    ((document.documentElement.dataset.lang === "th" && el.dataset.typedTh) || el.dataset.typed || "").split("|");
-  let w = 0;
+  const th = document.documentElement.dataset.lang === "th" && el.dataset.typedTh;
+  const phrase = (th || el.dataset.typed || "").split("|")[0];
+  const caret = el.nextElementSibling instanceof HTMLElement && el.nextElementSibling.classList.contains("caret") ? el.nextElementSibling : null;
   let i = 0;
-  let deleting = false;
   const step = () => {
-    const words = wordsFor();
-    const s = words[w % words.length];
-    el.textContent = s.slice(0, i);
-    if (!deleting && i === s.length) {
-      deleting = true;
-      return later(step, 1600);
-    }
-    if (deleting && i === 0) {
-      deleting = false;
-      w = (w + 1) % words.length;
-    }
-    i += deleting ? -1 : 1;
-    later(step, deleting ? 35 : 75);
+    i += 1;
+    el.textContent = phrase.slice(0, i);
+    if (i < phrase.length) return later(step, 60);
+    later(() => caret?.remove(), 1200);
   };
+  el.textContent = "";
   step();
 }

@@ -30,7 +30,12 @@ export default function Nav() {
           <i>PP</i>Pheerah
         </Link>
         {NAV.map((n) => (
-          <Link key={n.href} className={n.match && path.startsWith(n.match) ? "l on" : "l"} href={n.href}>
+          <Link
+            key={n.href}
+            className={n.match && path.startsWith(n.match) ? "l on" : "l"}
+            aria-current={n.match && path.startsWith(n.match) ? "page" : undefined}
+            href={n.href}
+          >
             <B v={n.label} />
           </Link>
         ))}

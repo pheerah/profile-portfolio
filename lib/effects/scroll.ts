@@ -17,13 +17,21 @@ export function scrollProgress({ signal }: Ctx) {
   update();
 }
 
-/** Orbs drift at different speeds while scrolling. */
-export function parallaxOrbs({ signal }: Ctx) {
-  const orbs = qa(".orb");
-  if (!orbs.length) return;
-  addEventListener(
-    "scroll",
-    () => orbs.forEach((o, i) => (o.style.translate = `0 ${scrollY * (i ? -0.12 : 0.18)}px`)),
-    { passive: true, signal }
+/** Highlights the nav link of the home-page section currently in view (links look like "/#about"). */
+export function scrollSpy(ctx: Ctx) {
+  const sections = qa("main section[id]");
+  const links = qa<HTMLAnchorElement>("nav a.l").filter((a) => a.getAttribute("href")?.startsWith("/#"));
+  // The nav persists across pages, so clear any highlight left over from the previous page.
+  links.forEach((a) => a.classList.remove("cur"));
+  if (!sections.length || !links.length) return;
+  const io = ctx.observe(
+    (es) =>
+      es.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const id = "/#" + e.target.id;
+        links.forEach((a) => a.classList.toggle("cur", a.getAttribute("href") === id));
+      }),
+    { rootMargin: "-45% 0px -50% 0px" }
   );
+  sections.forEach((s) => io.observe(s));
 }

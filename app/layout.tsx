@@ -1,9 +1,9 @@
 import type { Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Noto_Sans_Thai, Plus_Jakarta_Sans } from "next/font/google";
-import Effects from "@/components/layout/Effects";
+import { Noto_Sans_Thai, Plus_Jakarta_Sans } from "next/font/google";import Effects from "@/components/layout/Effects";
 import Footer from "@/components/layout/Footer";
 import Nav from "@/components/layout/Nav";
+import { T } from "@/components/ui/T";
 import { PREFS_SCRIPT } from "@/lib/prefs";
 import { jsonLd, rootMetadata } from "@/lib/seo";
 import "./globals.css";
@@ -30,8 +30,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>
+        <a className="skip" href="#main"><T en="Skip to content" th="ข้ามไปยังเนื้อหา" /></a>
+        <noscript>
+          <style>{".rv{opacity:1!important;transform:none!important}"}</style>
+        </noscript>
         <div id="bar" />
-        <div id="cur" />
         <Nav />
         {children}
         <Footer />

@@ -35,9 +35,15 @@ export function heroParticles({ signal, alive, onDispose }: Ctx) {
     { signal }
   );
 
+  // Run only while the hero is on screen and the tab is visible (saves CPU and battery).
   let raf = 0;
+  let onScreen = true;
+  const running = () => alive() && onScreen && !document.hidden;
   const draw = () => {
-    if (!alive()) return;
+    if (!running()) {
+      raf = 0;
+      return;
+    }
     ctx.clearRect(0, 0, W, H);
     dots.forEach((p, i) => {
       p.x += p.vx;
@@ -67,6 +73,18 @@ export function heroParticles({ signal, alive, onDispose }: Ctx) {
     });
     raf = requestAnimationFrame(draw);
   };
-  draw();
-  onDispose(() => cancelAnimationFrame(raf));
+  const resume = () => {
+    if (!raf && running()) draw();
+  };
+  const io = new IntersectionObserver(([e]) => {
+    onScreen = e.isIntersecting;
+    resume();
+  });
+  io.observe(cv);
+  document.addEventListener("visibilitychange", resume, { signal });
+  resume();
+  onDispose(() => {
+    io.disconnect();
+    cancelAnimationFrame(raf);
+  });
 }
